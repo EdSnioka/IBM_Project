@@ -1,4 +1,3 @@
-# %%
 import yfinance as yf
 import pandas as pd
 import requests
@@ -18,9 +17,8 @@ tesla_data = pd.DataFrame(data)
 
 tesla_data.reset_index(inplace=True)
 
-#print(tesla_data.head())
+print(tesla_data.head())
 
-###______________________________________
 
 ### Webscraping to extract tesla revenue data
 
@@ -54,11 +52,9 @@ df_tesla_revenue.dropna(inplace=True)
 
 df_tesla_revenue = df_tesla_revenue[df_tesla_revenue['Revenue'] != ""]
 
-### revenue_tesla = df_tesla_revenue['Revenue']
 
-### print(df_tesla_revenue['Revenue'].tail(5))
+print(df_tesla_revenue['Revenue'].tail(5))
 
-# df_tesla_revenue['Revenue'] = pd.to_numeric(df_tesla_revenue['Revenue'], errors='coerce')
 
 def make_graph(stock_data, revenue_data, stock):
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=("Historical Share Price", "Historical Revenue"), vertical_spacing = .3)
@@ -75,13 +71,7 @@ def make_graph(stock_data, revenue_data, stock):
     title=stock,
     xaxis_rangeslider_visible=True)
     fig.show()
+
 make_graph(tesla_data, df_tesla_revenue,'TSLA')
-
-
-### Finish Q 5-6 of Extracting and Visualizing Stock Data
-
-    
-
-
 
 # %%

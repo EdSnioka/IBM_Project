@@ -13,7 +13,7 @@ gme = yf.Ticker("GME")
 gme_data = gme.history(period="max")
 df_gme_data = pd.DataFrame(gme_data)
 df_gme_data.reset_index(inplace=True)
-# print("First 5 rows of gme data", df_gme_data.head())
+print("First 5 rows of gme data", df_gme_data.head())
 
 ### GME wbescraping to extract GME Revenue Data
 
@@ -39,11 +39,13 @@ df_gme["Revenue"] = df_gme['Revenue'].str.replace(',', "")
 df_gme["Revenue"] = df_gme['Revenue'].str.replace('|', "")
 
 
-# Execute the following lines to remove an null or empty strings in the Revenue column.
+# Execute the following lines to remove  null or empty strings in the Revenue column.
 
 df_gme.dropna(inplace=True)
 
 df_gme = df_gme[df_gme['Revenue'] != ""]
+
+print("tail\n",df_gme['Revenue'].tail(5))
 
 
 def make_graph(stock_data, revenue_data, stock):
@@ -64,7 +66,4 @@ def make_graph(stock_data, revenue_data, stock):
 
 make_graph(df_gme_data, df_gme, 'GME')
 
-
-
-
-
+# %%
