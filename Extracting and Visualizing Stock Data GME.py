@@ -1,3 +1,4 @@
+# %%
 import yfinance as yf
 import pandas as pd
 import requests
@@ -25,7 +26,9 @@ soup = BeautifulSoup(html_data, 'html5lib')
 
 gme_data = {"Date":[],"Revenue":[]}
 
-for row in soup.find("tbody").find_all("tr")[1:]:
+tbody = soup.find_all("tbody")[1]
+
+for row in tbody.find_all("tr"):
     col = row.find_all("td")
     date = col[0].text
     revenue = col[1].text

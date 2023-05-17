@@ -28,9 +28,11 @@ html_data = requests.get(url).text
 
 soup = BeautifulSoup(html_data, 'html5lib')
 
+tbody = soup.find_all("tbody")[1]
+
 tesla_revenue = {'Date':[], 'Revenue':[]}
 
-for row in soup.find("tbody").find_all('tr')[1:]:
+for row in tbody.find_all('tr'):
     col = row.find_all('td')
     date = col[0].text
     revenue = col[1].text
@@ -73,5 +75,3 @@ def make_graph(stock_data, revenue_data, stock):
     fig.show()
 
 make_graph(tesla_data, df_tesla_revenue,'TSLA')
-
-# %%
