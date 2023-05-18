@@ -14,7 +14,7 @@ gme = yf.Ticker("GME")
 gme_data = gme.history(period="max")
 df_gme_data = pd.DataFrame(gme_data)
 df_gme_data.reset_index(inplace=True)
-print("First 5 rows of gme data", df_gme_data.head())
+print(df_gme_data.head())
 
 ### GME wbescraping to extract GME Revenue Data
 

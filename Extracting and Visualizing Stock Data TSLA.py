@@ -1,3 +1,4 @@
+# %%
 import yfinance as yf
 import pandas as pd
 import requests
@@ -75,3 +76,5 @@ def make_graph(stock_data, revenue_data, stock):
     fig.show()
 
 make_graph(tesla_data, df_tesla_revenue,'TSLA')
+
+# %%
